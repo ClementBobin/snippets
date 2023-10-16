@@ -1,0 +1,1948 @@
+{
+	// Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"email.js": {
+		"prefix": "!emailjs",
+		"body": [
+			"document.getElementById('contact-form').addEventListener('submit', function (event) {",
+			"	event.preventDefault();  // Prevent the default form submission",
+			"",
+			"	// Get the user's input from the form",
+			"	const name = document.getElementById('name').value;",
+			"	const email = document.getElementById('email').value;",
+			"	const message = document.getElementById('message').value;",
+			"",
+			"function sendEmail(form) {",
+			"let e",
+			"// Populate template parameters",
+			"	const templateParams = {",
+			"		from_name: form.name,",
+			"       to_name: '?name?',",
+			"       from_email: form.email,",
+			"       to_email: '?email?',",
+			"       message: form.message,",
+			"	};",
+			"",
+			"// Replace with your actual service and template IDs",
+			"const serviceID = 'YOUR_SERVICE_ID';",
+			"const templateID = 'YOUR_TEMPLATE_ID';",
+			"",
+			"",
+			"emailjs.send(serviceID, templateID, templateParams, 'YOUR_USER_ID')",
+			"	.then(",
+			"		() => {",
+			"       	setLoading(false);",
+			"           alert('Thank you. I will get back to you as soon as possible.');",
+			"",
+			"           // Reset the form after successful email submission",
+			"           setForm({",
+			"           	name: '',",
+			"               email: '',",
+			"               message: '',",
+			"           });",
+			"       },",
+			"       (error) => {",
+			"       	setLoading(false);",
+			"           console.error('Error sending email:', error);",
+			"",
+			"           alert('Ahh, something went wrong. Please try again.');",
+			"       }",
+			"   );",
+			"}",
+			
+		],
+		"description": "emailjs"
+	  },
+	  "ajax-request": {
+		"prefix": "ajax",
+		"body": [
+			"const xhr = new XMLHttpRequest();",
+			"xhr.open('GET', 'https://api.example.com/data', true);",
+			"xhr.onload = function() {",
+			"  if (xhr.status === 200) {",
+			"    const data = JSON.parse(xhr.responseText);",
+			"    // Handle the data",
+			"  } else {",
+			"    console.error('Error:', xhr.statusText);",
+			"  }",
+			"};",
+			"xhr.send();"
+		],
+		"description": "Make an Ajax GET request"
+	},
+	"event-listener": {
+		"prefix": "event",
+		"body": [
+			"document.getElementById('myElement').addEventListener('click', function() {",
+			"  // Your event handling code here",
+			"});"
+		],
+		"description": "Add an event listener"
+	},
+	"timeout": {
+		"prefix": "timeout",
+		"body": [
+			"setTimeout(function() {",
+			"  // Your code to be executed after a delay",
+			"}, 1000);"
+		],
+		"description": "Set a timeout"
+	},
+	"interval": {
+		"prefix": "interval",
+		"body": [
+			"setInterval(function() {",
+			"  // Your code to be executed repeatedly at a set interval",
+			"}, 2000);"
+		],
+		"description": "Set an interval"
+	},
+	"create-element": {
+		"prefix": "createElement",
+		"body": [
+			"const newElement = document.createElement('div');",
+			"// Customize the new element",
+			"newElement.textContent = 'Hello, World!';",
+			"// Add the element to the DOM",
+			"document.body.appendChild(newElement);"
+		],
+		"description": "Create a new DOM element"
+	},
+	"array-iteration": {
+		"prefix": "iterateArray",
+		"body": [
+			"const array = [1, 2, 3, 4, 5];",
+			"for (let i = 0; i < array.length; i++) {",
+			"    const item = array[i];",
+			"    // Your code to handle each array item",
+			"}"
+		],
+		"description": "Iterate over an array"
+	},
+	"error-handling": {
+		"prefix": "trycatch",
+		"body": [
+			"try {",
+			"    // Code that may throw an error",
+			"} catch (error) {",
+			"    console.error('An error occurred:', error);",
+			"}"
+		],
+		"description": "Simple error handling with try...catch"
+	},
+	"local-storage": {
+		"prefix": "localStorage",
+		"body": [
+			"// Store data in local storage",
+			"localStorage.setItem('key', 'value');",
+			"",
+			"// Retrieve data from local storage",
+			"const retrievedValue = localStorage.getItem('key');",
+			"console.log('Retrieved value:', retrievedValue);"
+		],
+		"description": "Usage of localStorage"
+	},
+	"function-creation": {
+		"prefix": "createFunction",
+		"body": [
+			"function functionName(param1, param2) {",
+			"    // Your code here",
+			"    return param1 + param2;",
+			"}",
+			"// Call the function",
+			"const result = functionName(10, 20);",
+			"console.log('Result:', result);"
+		],
+		"description": "Create and call a function"
+	},
+	"event-delegation": {
+		"prefix": "eventDelegation",
+		"body": [
+			"document.addEventListener('click', function(event) {",
+			"    if (event.target && event.target.nodeName === 'BUTTON') {",
+			"        // Handle the event",
+			"        console.log('Button clicked:', event.target.textContent);",
+			"    }",
+			"});"
+		],
+		"description": "Event delegation example"
+	},
+	"fetch-api": {
+		"prefix": "fetchAPI",
+		"body": [
+			"fetch('https://api.example.com/data')",
+			"    .then(response => response.json())",
+			"    .then(data => {",
+			"        console.log('Data:', data);",
+			"    })",
+			"    .catch(error => {",
+			"        console.error('Error:', error);",
+			"    });"
+		],
+		"description": "Fetch data using Fetch API"
+	},
+	"object-literal": {
+		"prefix": "objectLiteral",
+		"body": [
+			"const myObject = {",
+			"    key1: 'value1',",
+			"    key2: 'value2',",
+			"    method: function() {",
+			"        // Your code here",
+			"    }",
+			"};"
+		],
+		"description": "Create an object literal"
+	},
+	"array-push-pop": {
+		"prefix": "arrayPushPop",
+		"body": [
+			"const myArray = [1, 2, 3];",
+			"// Add an element to the end of the array",
+			"myArray.push(4);",
+			"console.log('Array after push:', myArray);",
+			"",
+			"// Remove and return the last element of the array",
+			"const poppedElement = myArray.pop();",
+			"console.log('Popped element:', poppedElement);",
+			"console.log('Array after pop:', myArray);"
+		],
+		"description": "Array manipulation using push and pop"
+	},
+	"string-concatenation": {
+		"prefix": "stringConcat",
+		"body": [
+			"const str1 = 'Hello';",
+			"const str2 = 'World';",
+			"// Concatenate strings",
+			"const result = str1 + ' ' + str2;",
+			"console.log('Concatenated string:', result);"
+		],
+		"description": "String concatenation"
+	},
+	"async-await": {
+		"prefix": "asyncAwait",
+		"body": [
+			"async function fetchData() {",
+			"    try {",
+			"        const response = await fetch('https://api.example.com/data');",
+			"        const data = await response.json();",
+			"        console.log('Data:', data);",
+			"    } catch (error) {",
+			"        console.error('Error:', error);",
+			"    }",
+			"}",
+			"// Call the async function",
+			"fetchData();"
+		],
+		"description": "Using async/await for asynchronous operations"
+	},
+	"object-destructuring": {
+		"prefix": "objectDestructuring",
+		"body": [
+			"const user = {",
+			"    firstName: 'John',",
+			"    lastName: 'Doe',",
+			"};",
+			"// Destructure object properties",
+			"const { firstName, lastName } = user;",
+			"console.log('First Name:', firstName);",
+			"console.log('Last Name:', lastName);"
+		],
+		"description": "Object destructuring"
+	},
+	"arrow-function": {
+		"prefix": "arrowFunction",
+		"body": [
+			"const arrowFunction = (param) => {",
+			"    // Your code here",
+			"    return param;",
+			"};",
+			"const result = arrowFunction('Hello, Arrow Function!');",
+			"console.log('Result:', result);"
+		],
+		"description": "Create an ES6 arrow function"
+	},
+	"promises": {
+		"prefix": "promises",
+		"body": [
+			"const myPromise = new Promise((resolve, reject) => {",
+			"    // Your asynchronous code here",
+			"    const success = true; // Simulated result",
+			"    if (success) {",
+			"        resolve('Promise resolved!');",
+			"    } else {",
+			"        reject('Promise rejected!');",
+			"    }",
+			"});",
+			"// Usage of the promise",
+			"myPromise",
+			"    .then((result) => console.log('Success:', result))",
+			"    .catch((error) => console.error('Error:', error));"
+		],
+		"description": "Create and use a Promise"
+	},
+	"map-object": {
+		"prefix": "mapObject",
+		"body": [
+			"const myMap = new Map();",
+			"// Add key-value pairs to the map",
+			"myMap.set('key1', 'value1');",
+			"myMap.set('key2', 'value2');",
+			"// Get a value using a key",
+			"const value = myMap.get('key1');",
+			"console.log('Value for key1:', value);"
+		],
+		"description": "Working with Map object"
+	},
+	"class-definition": {
+		"prefix": "classDefinition",
+		"body": [
+			"class MyClass {",
+			"    constructor(param) {",
+			"        this.property = param;",
+			"    }",
+			"    method() {",
+			"        // Your code here",
+			"        return this.property;",
+			"    }",
+			"}",
+			"const myObject = new MyClass('My Property');",
+			"const result = myObject.method();",
+			"console.log('Result:', result);"
+		],
+		"description": "Define a class in JavaScript"
+	},
+	"async-function": {
+		"prefix": "asyncFunction",
+		"body": [
+			"async function myAsyncFunction() {",
+			"    try {",
+			"        // Simulate an asynchronous operation",
+			"        const result = await new Promise((resolve) => {",
+			"            setTimeout(() => resolve('Async operation complete'), 2000);",
+			"        });",
+			"        console.log('Async operation result:', result);",
+			"    } catch (error) {",
+			"        console.error('Error:', error);",
+			"    }",
+			"}",
+			"",
+			"// Call the asynchronous function",
+			"myAsyncFunction();"
+		],
+		"description": "Create an async function using async/await"
+	},
+	"set-timeout-params": {
+		"prefix": "setTimeoutParams",
+		"body": [
+			"const delay = 2000;",
+			"const message = 'This is a delayed message!';",
+			"// Set a timeout with parameters",
+			"setTimeout((msg) => {",
+			"    console.log(msg);",
+			"}, delay, message);"
+		],
+		"description": "Set a timeout with parameters"
+	},
+	"module-export-import": {
+		"prefix": "moduleExportImport",
+		"body": [
+			"// In a module file (e.g., myModule.js)",
+			"export const myFunction = () => {",
+			"    // Your code here",
+			"};",
+			"",
+			"// In another file",
+			"import { myFunction } from './myModule.js';",
+			"myFunction();"
+		],
+		"description": "Export and import modules in JavaScript"
+	},
+	"json-parse-stringify": {
+		"prefix": "jsonParseStringify",
+		"body": [
+			"const obj = { key: 'value' };",
+			"// Convert object to JSON string",
+			"const jsonString = JSON.stringify(obj);",
+			"console.log('JSON String:', jsonString);",
+			"",
+			"// Parse JSON string to object",
+			"const parsedObj = JSON.parse(jsonString);",
+			"console.log('Parsed Object:', parsedObj);"
+		],
+		"description": "JSON parsing and stringifying"
+	},
+	"event-emitter": {
+		"prefix": "eventEmitter",
+		"body": [
+			"class EventEmitter {",
+			"    constructor() {",
+			"        this.events = new Map();",
+			"    }",
+			"    on(event, callback) {",
+			"        if (!this.events.has(event)) {",
+			"            this.events.set(event, []);",
+			"        }",
+			"        this.events.get(event).push(callback);",
+			"    }",
+			"    emit(event, ...args) {",
+			"        const callbacks = this.events.get(event) || [];",
+			"        for (const callback of callbacks) {",
+			"            callback(...args);",
+			"        }",
+			"    }",
+			"}",
+			"// Usage:",
+			"const emitter = new EventEmitter();",
+			"emitter.on('myEvent', (data) => console.log('Event emitted:', data));",
+			"emitter.emit('myEvent', 'Hello, Event!');"
+		],
+		"description": "Implementing an Event Emitter"
+	},
+	"array-iteration-foreach": {
+		"prefix": "forEachArray",
+		"body": [
+			"const myArray = [1, 2, 3, 4, 5];",
+			"// Iterate over array using forEach",
+			"myArray.forEach((item, index) => {",
+			"    console.log(`Index ${index}: ${item}`);",
+			"});"
+		],
+		"description": "Array iteration using forEach"
+	},
+	"object-spread": {
+		"prefix": "objectSpread",
+		"body": [
+			"const obj1 = { a: 1, b: 2 };",
+			"const obj2 = { c: 3, ...obj1 };",
+			"console.log('Merged object:', obj2);"
+		],
+		"description": "Using the object spread operator"
+	},
+	"async-function-promise": {
+		"prefix": "asyncFunctionPromise",
+		"body": [
+			"function wait(ms) {",
+			"    return new Promise((resolve) => setTimeout(resolve, ms));",
+			"}",
+			"async function asyncTask() {",
+			"    console.log('Start of async task');",
+			"    await wait(2000);",
+			"    console.log('End of async task after waiting for 2 seconds');",
+			"}",
+			"asyncTask();"
+		],
+		"description": "Create an asynchronous function using Promises"
+	},								
+	"iife": {
+		"prefix": "iife",
+		"body": [
+			"(function() {",
+			"    // Your code here",
+			"})();"
+		],
+		"description": "Immediately Invoked Function Expression (IIFE)"
+	},
+	"sets": {
+		"prefix": "sets",
+		"body": [
+			"const mySet = new Set();",
+			"// Add elements to the set",
+			"mySet.add(1);",
+			"mySet.add(2);",
+			"// Check if an element exists in the set",
+			"const exists = mySet.has(1);",
+			"console.log('Element 1 exists:', exists);",
+			"// Delete an element from the set",
+			"mySet.delete(1);",
+			"console.log('Set after deletion:', mySet);"
+		],
+		"description": "Working with Sets in JavaScript"
+	},
+	"generator-function": {
+		"prefix": "generatorFunction",
+		"body": [
+			"function* generator() {",
+			"    yield 1;",
+			"    yield 2;",
+			"    yield 3;",
+			"}",
+			"const gen = generator();",
+			"console.log(gen.next().value); // 1",
+			"console.log(gen.next().value); // 2",
+			"console.log(gen.next().value); // 3"
+		],
+		"description": "Create a generator function"
+	},
+	"fetch-api-error-handling": {
+		"prefix": "fetchAPIErrorHandling",
+		"body": [
+			"fetch('https://api.example.com/data')",
+			"    .then(response => {",
+			"        if (!response.ok) {",
+			"            throw new Error('Network response was not ok');",
+			"        }",
+			"        return response.json();",
+			"    })",
+			"    .then(data => {",
+			"        console.log('Data:', data);",
+			"    })",
+			"    .catch(error => {",
+			"        console.error('Error:', error);",
+			"    });"
+		],
+		"description": "Fetch data with error handling"
+	},
+	"remove-event-listener": {
+		"prefix": "removeEventListener",
+		"body": [
+			"// Assume 'myElement' is an HTML element",
+			"function handleClick() {",
+			"    console.log('Button clicked!');",
+			"}",
+			"// Add event listener",
+			"myElement.addEventListener('click', handleClick);",
+			"// Remove event listener",
+			"myElement.removeEventListener('click', handleClick);"
+		],
+		"description": "Remove an event listener"
+	},
+	"object-prototypes-inheritance": {
+		"prefix": "objectPrototypesInheritance",
+		"body": [
+			"function Person(name) {",
+			"    this.name = name;",
+			"}",
+			"Person.prototype.greet = function() {",
+			"    return 'Hello, my name is ' + this.name;",
+			"};",
+			"function Student(name, grade) {",
+			"    Person.call(this, name);",
+			"    this.grade = grade;",
+			"}",
+			"Student.prototype = Object.create(Person.prototype);",
+			"Student.prototype.constructor = Student;",
+			"Student.prototype.getGrade = function() {",
+			"    return this.grade;",
+			"};",
+			"// Usage:",
+			"const student = new Student('Alice', 'A');",
+			"console.log(student.greet());",
+			"console.log('Grade:', student.getGrade());"
+		],
+		"description": "Object prototypes and inheritance"
+	},
+	"dom-append-child": {
+		"prefix": "domAppendChild",
+		"body": [
+			"// Assume 'parentElement' and 'childElement' are HTML elements",
+			"// Append 'childElement' to 'parentElement'",
+			"parentElement.appendChild(childElement);"
+		],
+		"description": "Append a child element to the DOM"
+	},
+	"local-storage-json": {
+		"prefix": "localStorageJSON",
+		"body": [
+			"// Store a JSON object in localStorage",
+			"const myObject = { key: 'value' };",
+			"localStorage.setItem('myKey', JSON.stringify(myObject));",
+			"",
+			"// Retrieve and parse the JSON object from localStorage",
+			"const retrievedObject = JSON.parse(localStorage.getItem('myKey'));",
+			"console.log('Retrieved Object:', retrievedObject);"
+		],
+		"description": "Storing and retrieving JSON in localStorage"
+	},
+	"web-worker": {
+		"prefix": "webWorker",
+		"body": [
+			"// Create a web worker from an external script",
+			"const worker = new Worker('worker.js');",
+			"// Send a message to the worker",
+			"worker.postMessage('Hello from main script!');",
+			"",
+			"// Receive and handle messages from the worker",
+			"worker.onmessage = function(event) {",
+			"    console.log('Message from worker:', event.data);",
+			"};"
+		],
+		"description": "Creating a web worker"
+	},
+	"string-replace-all": {
+		"prefix": "replaceAll",
+		"body": [
+			"// Replace all occurrences of a substring in a string",
+			"const originalString = 'Hello, world! Hello, universe!';",
+			"const newString = originalString.replaceAll('Hello', 'Hi');",
+			"console.log('New string:', newString);"
+		],
+		"description": "Replace all occurrences in a string"
+	},
+	"sort-array-of-objects": {
+		"prefix": "sortArrayOfObjects",
+		"body": [
+			"const data = [",
+			"    { name: 'Alice', age: 30 },",
+			"    { name: 'Bob', age: 25 },",
+			"    { name: 'Charlie', age: 35 }",
+			"];",
+			"// Sort the array of objects by age",
+			"data.sort((a, b) => a.age - b.age);",
+			"console.log('Sorted Data:', data);"
+		],
+		"description": "Sort an array of objects by a property"
+	},
+	"object-keys-iteration": {
+		"prefix": "objectKeysIteration",
+		"body": [
+			"const myObject = {",
+			"    name: 'Alice',",
+			"    age: 30,",
+			"    city: 'New York'",
+			"};",
+			"// Iterate over object properties using Object.keys",
+			"Object.keys(myObject).forEach(key => {",
+			"    console.log(`${key}: ${myObject[key]}`);",
+			"});"
+		],
+		"description": "Iterate over object properties using Object.keys"
+	},
+	"object-keys-iteration": {
+		"prefix": "objectKeysIteration",
+		"body": [
+			"const myObject = {",
+			"    name: 'Alice',",
+			"    age: 30,",
+			"    city: 'New York'",
+			"};",
+			"// Iterate over object properties using Object.keys",
+			"Object.keys(myObject).forEach(key => {",
+			"    console.log(`${key}: ${myObject[key]}`);",
+			"});"
+		],
+		"description": "Iterate over object properties using Object.keys"
+	},
+	"random-number-in-range": {
+		"prefix": "randomNumberInRange",
+		"body": [
+			"function getRandomNumber(min, max) {",
+			"    return Math.floor(Math.random() * (max - min + 1)) + min;",
+			"}",
+			"// Get a random number between 1 and 10",
+			"const randomNum = getRandomNumber(1, 10);",
+			"console.log('Random Number:', randomNum);"
+		],
+		"description": "Generate a random number within a range"
+	},
+	"array-filter": {
+		"prefix": "arrayFilter",
+		"body": [
+			"const numbers = [1, 2, 3, 4, 5];",
+			"// Filter even numbers",
+			"const evenNumbers = numbers.filter(num => num % 2 === 0);",
+			"console.log('Even Numbers:', evenNumbers);"
+		],
+		"description": "Filtering an array"
+	},
+	"debounce-function": {
+		"prefix": "debounceFunction",
+		"body": [
+			"function debounce(func, delay) {",
+			"    let timeoutId;",
+			"    return function(...args) {",
+			"        clearTimeout(timeoutId);",
+			"        timeoutId = setTimeout(() => {",
+			"            func(...args);",
+			"        }, delay);",
+			"    };",
+			"}",
+			"// Usage:",
+			"const debouncedFunction = debounce(() => {",
+			"    console.log('Debounced function called!');",
+			"}, 300);"
+		],
+		"description": "Create a debounce function"
+	},
+	"is-element-in-viewport": {
+		"prefix": "isElementInViewport",
+		"body": [
+			"function isElementInViewport(element) {",
+			"    const rect = element.getBoundingClientRect();",
+			"    return (rect.top >= 0 && rect.bottom <= window.innerHeight);",
+			"}",
+			"// Usage:",
+			"const myElement = document.getElementById('myElement');",
+			"console.log('Is element in viewport:', isElementInViewport(myElement));"
+		],
+		"description": "Check if an element is in the viewport"
+	},
+	"array-shuffle": {
+		"prefix": "arrayShuffle",
+		"body": [
+			"function shuffleArray(array) {",
+			"    for (let i = array.length - 1; i > 0; i--) {",
+			"        const j = Math.floor(Math.random() * (i + 1));",
+			"        [array[i], array[j]] = [array[j], array[i]];",
+			"    }",
+			"    return array;",
+			"}",
+			"// Usage:",
+			"const originalArray = [1, 2, 3, 4, 5];",
+			"const shuffledArray = shuffleArray(originalArray);",
+			"console.log('Shuffled Array:', shuffledArray);"
+		],
+		"description": "Shuffle an array"
+	},
+	"simple-carousel": {
+		"prefix": "simpleCarousel",
+		"body": [
+			"// Assume 'carousel' is the carousel element",
+			"let currentIndex = 0;",
+			"const items = document.querySelectorAll('.carousel-item');",
+			"const totalItems = items.length;",
+			"",
+			"function showItem(index) {",
+			"    items.forEach((item) => item.classList.remove('active'));",
+			"    items[index].classList.add('active');",
+			"}",
+			"",
+			"function nextItem() {",
+			"    currentIndex = (currentIndex + 1) % totalItems;",
+			"    showItem(currentIndex);",
+			"}",
+			"",
+			"function prevItem() {",
+			"    currentIndex = (currentIndex - 1 + totalItems) % totalItems;",
+			"    showItem(currentIndex);",
+			"}",
+			"// Usage:",
+			"// Call nextItem() and prevItem() to navigate through the carousel"
+		],
+		"description": "Create a simple carousel using JavaScript"
+	},
+	"intersection-observer": {
+		"prefix": "intersectionObserver",
+		"body": [
+			"// Assume 'targetElement' is the element to observe",
+			"const observer = new IntersectionObserver((entries) => {",
+			"    entries.forEach((entry) => {",
+			"        if (entry.isIntersecting) {",
+			"            // Element is in the viewport",
+			"            console.log('Element is in the viewport');",
+			"        } else {",
+			"            // Element is out of the viewport",
+			"            console.log('Element is out of the viewport');",
+			"        }",
+			"    });",
+			"});",
+			"observer.observe(targetElement);"
+		],
+		"description": "Use Intersection Observer to detect element visibility"
+	},
+	"event-delegation-target": {
+		"prefix": "eventDelegationTarget",
+		"body": [
+			"// Assume 'parentElement' is the parent element",
+			"parentElement.addEventListener('click', (event) => {",
+			"    const target = event.target;",
+			"    if (target.tagName === 'BUTTON') {",
+			"        // Button was clicked",
+			"        console.log('Button clicked:', target.textContent);",
+			"    }",
+			"});"
+		],
+		"description": "Event delegation with event target"
+	},
+	"throttle-function": {
+		"prefix": "throttleFunction",
+		"body": [
+			"function throttle(func, delay) {",
+			"    let lastTime = 0;",
+			"    return function (...args) {",
+			"        const now = new Date().getTime();",
+			"        if (now - lastTime >= delay) {",
+			"            func(...args);",
+			"            lastTime = now;",
+			"        }",
+			"    };",
+			"}",
+			"// Usage:",
+			"const throttledFunction = throttle(() => {",
+			"    console.log('Throttled function called!');",
+			"}, 300);"
+		],
+		"description": "Create a throttle function"
+	},
+	"flatten-array": {
+		"prefix": "flattenArray",
+		"body": [
+			"const nestedArray = [[1, 2], [3, 4], [5, 6]];",
+			"// Flatten the nested array",
+			"const flattenedArray = [].concat(...nestedArray);",
+			"console.log('Flattened Array:', flattenedArray);"
+		],
+		"description": "Flatten a nested array"
+	},
+	"countdown-timer": {
+		"prefix": "countdownTimer",
+		"body": [
+			"function countdownTimer(duration, display) {",
+			"    let timer = duration, minutes, seconds;",
+			"    setInterval(() => {",
+			"        minutes = parseInt(timer / 60, 10);",
+			"        seconds = parseInt(timer % 60, 10);",
+			"        minutes = minutes < 10 ? '0' + minutes : minutes;",
+			"        seconds = seconds < 10 ? '0' + seconds : seconds;",
+			"        display.textContent = minutes + ':' + seconds;",
+			"        if (--timer < 0) {",
+			"            timer = duration;",
+			"        }",
+			"    }, 1000);",
+			"}",
+			"// Usage:",
+			"const duration = 600; // 10 minutes",
+			"const display = document.getElementById('timer-display');",
+			"countdownTimer(duration, display);"
+		],
+		"description": "Create a simple countdown timer"
+	},
+	"detect-device-type": {
+		"prefix": "detectDeviceType",
+		"body": [
+			"function detectDeviceType() {",
+			"    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';",
+			"}",
+			"// Usage:",
+			"const deviceType = detectDeviceType();",
+			"console.log('Device Type:', deviceType);"
+		],
+		"description": "Detect the user's device type"
+	},											
+	"memoization-function": {
+		"prefix": "memoizationFunction",
+		"body": [
+			"const memoize = (func) => {",
+			"    const cache = new Map();",
+			"    return (...args) => {",
+			"        const key = args.toString();",
+			"        if (cache.has(key)) {",
+			"            return cache.get(key);",
+			"        }",
+			"        const result = func(...args);",
+			"        cache.set(key, result);",
+			"        return result;",
+			"    };",
+			"};",
+			"// Usage:",
+			"const expensiveFunction = (n) => {",
+			"    console.log('Performing expensive computation for', n);",
+			"    return n * 2;",
+			"};",
+			"const memoizedFunction = memoize(expensiveFunction);",
+			"console.log(memoizedFunction(10));",
+			"console.log(memoizedFunction(10));"    
+		],
+		"description": "Create a memoization function"
+	},
+	"nodelist-to-array": {
+		"prefix": "nodeListToArray",
+		"body": [
+			"// Assume 'nodeList' is a NodeList",
+			"const arrayFromNodeList = Array.from(nodeList);",
+			"console.log('Array from NodeList:', arrayFromNodeList);"
+		],
+		"description": "Convert a NodeList to an array"
+	},
+	"deep-clone-function": {
+		"prefix": "deepCloneFunction",
+		"body": [
+			"function deepClone(obj) {",
+			"    return JSON.parse(JSON.stringify(obj));",
+			"}",
+			"// Usage:",
+			"const originalObject = { a: 1, b: { c: 2 } };",
+			"const clonedObject = deepClone(originalObject);",
+			"console.log('Cloned Object:', clonedObject);"
+		],
+		"description": "Create a deep clone function"
+	},
+	"factorial-recursion": {
+		"prefix": "factorialRecursion",
+		"body": [
+			"function factorial(n) {",
+			"    if (n === 0 || n === 1) return 1;",
+			"    return n * factorial(n - 1);",
+			"}",
+			"// Usage:",
+			"const result = factorial(5);",
+			"console.log('Factorial of 5:', result);"
+		],
+		"description": "Calculate factorial using recursion"
+	},
+	"generate-uuid": {
+		"prefix": "generateUUID",
+		"body": [
+			"function generateUUID() {",
+			"    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {",
+			"        const r = Math.random() * 16 | 0,",
+			"            v = c === 'x' ? r : (r & 0x3 | 0x8);",
+			"        return v.toString(16);",
+			"    });",
+			"}",
+			"// Usage:",
+			"const uuid = generateUUID();",
+			"console.log('Generated UUID:', uuid);"
+		],
+		"description": "Generate a unique identifier (UUID)"
+	},
+	"pub-sub-pattern": {
+		"prefix": "pubSubPattern",
+		"body": [
+			"const events = {};",
+			"function subscribe(event, callback) {",
+			"    if (!events[event]) {",
+			"        events[event] = [];",
+			"    }",
+			"    events[event].push(callback);",
+			"}",
+			"function publish(event, data) {",
+			"    if (!events[event]) return;",
+			"    events[event].forEach(callback => callback(data));",
+			"}",
+			"// Usage:",
+			"subscribe('userLoggedIn', (data) => {",
+			"    console.log('User logged in:', data);",
+			"});",
+			"publish('userLoggedIn', { username: 'exampleuser' });"
+		],
+		"description": "Create a simple Pub/Sub pattern"
+	},
+	"event-emitter": {
+		"prefix": "eventEmitter",
+		"body": [
+			"class EventEmitter {",
+			"    constructor() {",
+			"        this.events = {};",
+			"    }",
+			"    on(event, listener) {",
+			"        if (!this.events[event]) {",
+			"            this.events[event] = [];",
+			"        }",
+			"        this.events[event].push(listener);",
+			"    }",
+			"    emit(event, ...args) {",
+			"        if (!this.events[event]) return;",
+			"        this.events[event].forEach(listener => listener(...args));",
+			"    }",
+			"}",
+			"// Usage:",
+			"const emitter = new EventEmitter();",
+			"emitter.on('message', (message) => {",
+			"    console.log('Received message:', message);",
+			"});",
+			"emitter.emit('message', 'Hello, world!');"
+		],
+		"description": "Create a simple Event Emitter"
+	},
+	"web-component": {
+		"prefix": "webComponent",
+		"body": [
+			"class MyCustomElement extends HTMLElement {",
+			"    constructor() {",
+			"        super();",
+			"    }",
+			"    connectedCallback() {",
+			"        this.innerHTML = '<h1>Hello, Web Component!</h1>';",
+			"    }",
+			"}",
+			"customElements.define('my-custom-element', MyCustomElement);"
+		],
+		"description": "Create a simple Web Component"
+	},
+	"memoization-cache-limit": {
+		"prefix": "memoizationCacheLimit",
+		"body": [
+			"function memoizeWithCacheLimit(func, cacheLimit) {",
+			"    const cache = new Map();",
+			"    return function (...args) {",
+			"        const key = args.toString();",
+			"        if (cache.has(key)) {",
+			"            return cache.get(key);",
+			"        }",
+			"        const result = func(...args);",
+			"        if (cache.size >= cacheLimit) {",
+			"            cache.delete(cache.keys().next().value);",
+			"        }",
+			"        cache.set(key, result);",
+			"        return result;",
+			"    };",
+			"}",
+			"// Usage:",
+			"const memoizedFunction = memoizeWithCacheLimit(expensiveFunction, 5);"
+		],
+		"description": "Create a memoization function with a cache limit"
+	},
+	"cookie-operations": {
+		"prefix": "cookieOperations",
+		"body": [
+			"// Set a cookie",
+			"function setCookie(name, value, days) {",
+			"    const date = new Date();",
+			"    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));",
+			"    const expires = 'expires=' + date.toUTCString();",
+			"    document.cookie = name + '=' + value + '; ' + expires + '; path=/';",
+			"}",
+			"// Get a cookie",
+			"function getCookie(name) {",
+			"    const cookies = document.cookie.split(';');",
+			"    for (let cookie of cookies) {",
+			"        const [cookieName, cookieValue] = cookie.split('=');",
+			"        if (cookieName.trim() === name) {",
+			"            return cookieValue;",
+			"        }",
+			"    }",
+			"    return null;",
+			"}",
+			"// Usage:",
+			"setCookie('username', 'john_doe', 30);",
+			"const username = getCookie('username');",
+			"console.log('Username:', username);"
+		],
+		"description": "Working with cookies"
+	},
+	"random-color": {
+		"prefix": "randomColor",
+		"body": [
+			"function getRandomColor() {",
+			"    const letters = '0123456789ABCDEF';",
+			"    let color = '#';",
+			"    for (let i = 0; i < 6; i++) {",
+			"        color += letters[Math.floor(Math.random() * 16)];",
+			"    }",
+			"    return color;",
+			"}",
+			"// Usage:",
+			"const randomColor = getRandomColor();",
+			"console.log('Random Color:', randomColor);"
+		],
+		"description": "Generate a random color"
+	},
+	"chartjs-basic-chart": {
+		"prefix": "chartjsBasicChart",
+		"body": [
+			"// Assume 'chartData' is the data for the chart",
+			"const ctx = document.getElementById('myChart').getContext('2d');",
+			"const myChart = new Chart(ctx, {",
+			"    type: 'bar',",
+			"    data: {",
+			"        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],",
+			"        datasets: [{",
+			"            label: '# of Votes',",
+			"            data: chartData,",
+			"            backgroundColor: [",
+			"                'rgba(255, 99, 132, 0.2)',",
+			"                'rgba(54, 162, 235, 0.2)',",
+			"                'rgba(255, 206, 86, 0.2)',",
+			"                'rgba(75, 192, 192, 0.2)',",
+			"                'rgba(153, 102, 255, 0.2)',",
+			"                'rgba(255, 159, 64, 0.2)'",
+			"            ],",
+			"            borderColor: [",
+			"                'rgba(255, 99, 132, 1)',",
+			"                'rgba(54, 162, 235, 1)',",
+			"                'rgba(255, 206, 86, 1)',",
+			"                'rgba(75, 192, 192, 1)',",
+			"                'rgba(153, 102, 255, 1)',",
+			"                'rgba(255, 159, 64, 1)'",
+			"            ],",
+			"            borderWidth: 1",
+			"        }]",
+			"    },",
+			"    options: {",
+			"        scales: {",
+			"            y: {",
+			"                beginAtZero: true",
+			"            }",
+			"        }",
+			"    }",
+			"});"
+		],
+		"description": "Create a basic chart using Chart.js"
+	},
+	"markdown-to-html": {
+		"prefix": "markdownToHTML",
+		"body": [
+			"// Assume 'markdownText' is the Markdown content",
+			"const converter = new showdown.Converter();",
+			"const html = converter.makeHtml(markdownText);",
+			"console.log('HTML from Markdown:', html);"
+		],
+		"description": "Convert Markdown to HTML using Showdown"
+	},
+	"throttle-function-leading": {
+		"prefix": "throttleFunctionLeading",
+		"body": [
+			"function throttle(func, wait, options = {}) {",
+			"    let timeout;",
+			"    let previous = 0;",
+			"    return function (...args) {",
+			"        const now = Date.now();",
+			"        if (!previous && options.leading === false) previous = now;",
+			"        const remaining = wait - (now - previous);",
+			"        if (remaining <= 0 || remaining > wait) {",
+			"            if (timeout) {",
+			"                clearTimeout(timeout);",
+			"                timeout = null;",
+			"            }",
+			"            previous = now;",
+			"            func.apply(this, args);",
+			"        } else if (!timeout && options.trailing !== false) {",
+			"            timeout = setTimeout(() => {",
+			"                previous = options.leading === false ? 0 : Date.now();",
+			"                timeout = null;",
+			"                func.apply(this, args);",
+			"            }, remaining);",
+			"        }",
+			"    };",
+			"}",
+			"// Usage:",
+			"const throttledFunc = throttle(myFunc, 300, { leading: true, trailing: false });",
+			"// Call throttledFunc when needed"
+		],
+		"description": "Create a throttle function with leading option"
+	},
+	"debounce-function": {
+		"prefix": "debounceFunction",
+		"body": [
+			"function debounce(func, wait) {",
+			"    let timeout;",
+			"    return function (...args) {",
+			"        const context = this;",
+			"        clearTimeout(timeout);",
+			"        timeout = setTimeout(() => func.apply(context, args), wait);",
+			"    };",
+			"}",
+			"// Usage:",
+			"const myFunc = () => {",
+			"    console.log('Debounced function called!');",
+			"};",
+			"const debouncedFunc = debounce(myFunc, 300);",
+			"// Call debouncedFunc when needed"
+		],
+		"description": "Create a simple debounce function"
+	},
+	"url-slug": {
+		"prefix": "urlSlug",
+		"body": [
+			"function generateUrlSlug(str) {",
+			"    return str",
+			"        .toLowerCase()",
+			"        .replace(/[^a-zA-Z0-9 -]/g, '')",
+			"        .replace(/\\s+/g, '-')",
+			"        .replace(/-+/g, '-');",
+			"}",
+			"// Usage:",
+			"const inputString = 'This is a Sample String!';",
+			"const slug = generateUrlSlug(inputString);",
+			"console.log('URL Slug:', slug);"
+		],
+		"description": "Generate a URL slug from a string"
+	},
+	"internet-connection-status": {
+		"prefix": "internetConnectionStatus",
+		"body": [
+			"function checkInternetConnection() {",
+			"    return navigator.onLine;",
+			"}",
+			"// Usage:",
+			"const isConnected = checkInternetConnection();",
+			"console.log('Is connected to the internet:', isConnected);"
+		],
+		"description": "Detect internet connection status"
+	},
+	"random-password-generator": {
+		"prefix": "randomPasswordGenerator",
+		"body": [
+			"function generateRandomPassword(length) {",
+			"    const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+[]{}|;:,.<>?';",
+			"    let password = '';",
+			"    for (let i = 0; i < length; i++) {",
+			"        const randomIndex = Math.floor(Math.random() * charset.length);",
+			"        password += charset[randomIndex];",
+			"    }",
+			"    return password;",
+			"}",
+			"// Usage:",
+			"const password = generateRandomPassword(12);",
+			"console.log('Random Password:', password);"
+		],
+		"description": "Generate a random password"
+	},
+	"simple-tooltip": {
+		"prefix": "simpleTooltip",
+		"body": [
+			"const tooltip = document.createElement('div');",
+			"tooltip.textContent = 'Tooltip Text';",
+			"tooltip.style.position = 'absolute';",
+			"tooltip.style.display = 'none';",
+			"document.body.appendChild(tooltip);",
+			"",
+			"function showTooltip(event) {",
+			"    tooltip.style.top = `${event.clientY}px`;",
+			"    tooltip.style.left = `${event.clientX}px`;",
+			"    tooltip.style.display = 'block';",
+			"}",
+			"",
+			"function hideTooltip() {",
+			"    tooltip.style.display = 'none';",
+			"}",
+			"// Usage:",
+			"// Call showTooltip(event) to display the tooltip and hideTooltip() to hide it"
+		],
+		"description": "Create a simple tooltip"
+	},
+	"json-copy": {
+		"prefix": "jsonCopy",
+		"body": [
+			"function deepCopyJSON(obj) {",
+			"    return JSON.parse(JSON.stringify(obj));",
+			"}",
+			"// Usage:",
+			"const originalObj = { a: 1, b: { c: 2 } };",
+			"const copiedObj = deepCopyJSON(originalObj);",
+			"console.log('Copied Object:', copiedObj);"
+		],
+		"description": "Create a deep copy of a JSON object"
+	},
+	"fibonacci-sequence": {
+		"prefix": "fibonacciSequence",
+		"body": [
+			"function fibonacci(n) {",
+			"    const sequence = [0, 1];",
+			"    for (let i = 2; i <= n; i++) {",
+			"        sequence.push(sequence[i - 1] + sequence[i - 2]);",
+			"    }",
+			"    return sequence.slice(0, n + 1);",
+			"}",
+			"// Usage:",
+			"const fibSequence = fibonacci(10);",
+			"console.log('Fibonacci Sequence:', fibSequence);"
+		],
+		"description": "Calculate the Fibonacci sequence"
+	},
+	"simple-tabs-component": {
+		"prefix": "simpleTabsComponent",
+		"body": [
+			"function showTab(tabId) {",
+			"    const tabs = document.querySelectorAll('.tab');",
+			"    tabs.forEach(tab => {",
+			"        tab.style.display = (tab.id === tabId) ? 'block' : 'none';",
+			"    });",
+			"}",
+			"// Usage:",
+			"// Call showTab(tabId) to display a specific tab"
+		],
+		"description": "Create a simple tabs component"
+	},
+	"factorial-calculation": {
+		"prefix": "factorialCalculation",
+		"body": [
+			"function factorial(n) {",
+			"    if (n < 0) return undefined;",
+			"    let result = 1;",
+			"    for (let i = 2; i <= n; i++) {",
+			"        result *= i;",
+			"    }",
+			"    return result;",
+			"}",
+			"// Usage:",
+			"const factOf5 = factorial(5);",
+			"console.log('Factorial of 5:', factOf5);"
+		],
+		"description": "Calculate factorial of a number"
+	},
+	"simple-pagination": {
+		"prefix": "simplePagination",
+		"body": [
+			"function displayPage(pageNumber) {",
+			"    const pages = document.querySelectorAll('.page');",
+			"    pages.forEach(page => {",
+			"        page.style.display = (page.dataset.page === pageNumber) ? 'block' : 'none';",
+			"    });",
+			"}",
+			"// Usage:",
+			"// Call displayPage(pageNumber) to display a specific page"
+		],
+		"description": "Create a simple pagination component"
+	}
+	"gcd-calculation": {
+		"prefix": "gcdCalculation",
+		"body": [
+			"function calculateGCD(a, b) {",
+			"    if (b === 0) return a;",
+			"    return calculateGCD(b, a % b);",
+			"}",
+			"// Usage:",
+			"const gcdOf24And36 = calculateGCD(24, 36);",
+			"console.log('GCD of 24 and 36:', gcdOf24And36);"
+		],
+		"description": "Calculate the GCD (Greatest Common Divisor) of two numbers"
+	},
+	"toggle-switch": {
+		"prefix": "toggleSwitch",
+		"body": [
+			"function toggleSwitch() {",
+			"    const switchElement = document.getElementById('toggle-switch');",
+			"    switchElement.checked = !switchElement.checked;",
+			"}",
+			"// Usage:",
+			"// Add an HTML checkbox input with id 'toggle-switch' and call toggleSwitch() to toggle its state"
+		],
+		"description": "Create a toggle switch"
+	},
+	"simple-lightbox": {
+		"prefix": "simpleLightbox",
+		"body": [
+			"function openLightbox(imageSrc) {",
+			"    const lightbox = document.createElement('div');",
+			"    lightbox.innerHTML = `<img src='${imageSrc}' alt='Lightbox Image'>`;",
+			"    lightbox.classList.add('lightbox');",
+			"    document.body.appendChild(lightbox);",
+			"}",
+			"",
+			"function closeLightbox() {",
+			"    const lightbox = document.querySelector('.lightbox');",
+			"    if (lightbox) lightbox.remove();",
+			"}",
+			"// Usage:",
+			"// Call openLightbox(imageSrc) to display the lightbox with the specified image and closeLightbox() to close it"
+		],
+		"description": "Create a simple lightbox for images"
+	},
+	"simple-accordion": {
+		"prefix": "simpleAccordion",
+		"body": [
+			"function toggleAccordion(accordionId) {",
+			"    const accordion = document.getElementById(accordionId);",
+			"    accordion.classList.toggle('active');",
+			"    const panel = accordion.nextElementSibling;",
+			"    if (panel.style.display === 'block') {",
+			"        panel.style.display = 'none';",
+			"    } else {",
+			"        panel.style.display = 'block';",
+			"    }",
+			"}",
+			"// Usage:",
+			"// Call toggleAccordion(accordionId) to toggle the accordion state"
+		],
+		"description": "Create a simple accordion component"
+	},
+	"simple-drag-and-drop": {
+		"prefix": "simpleDragAndDrop",
+		"body": [
+			"function allowDrop(event) {",
+			"    event.preventDefault();",
+			"}",
+			"",
+			"function drag(event) {",
+			"    event.dataTransfer.setData('text', event.target.id);",
+			"}",
+			"",
+			"function drop(event) {",
+			"    event.preventDefault();",
+			"    const data = event.dataTransfer.getData('text');",
+			"    const draggedElement = document.getElementById(data);",
+			"    event.target.appendChild(draggedElement);",
+			"}",
+			"// Usage:",
+			"// Add event listeners for drag, dragstart, dragenter, dragover, dragleave, and drop to enable drag and drop functionality"
+		],
+		"description": "Create a simple drag and drop component"
+	},
+	"random-quote-generator": {
+		"prefix": "randomQuoteGenerator",
+		"body": [
+			"const quotes = [",
+			"    'The only way to do great work is to love what you do. - Steve Jobs',",
+			"    'Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill',",
+			"    'Believe you can and you\'re halfway there. - Theodore Roosevelt',",
+			"    'The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt'",
+			"];",
+			"",
+			"function getRandomQuote() {",
+			"    const randomIndex = Math.floor(Math.random() * quotes.length);",
+			"    return quotes[randomIndex];",
+			"}",
+			"// Usage:",
+			"const randomQuote = getRandomQuote();",
+			"console.log('Random Quote:', randomQuote);"
+		],
+		"description": "Generate a random quote from an array"
+	},
+	"toast-notification": {
+		"prefix": "toastNotification",
+		"body": [
+			"function showToast(message) {",
+			"    const toast = document.createElement('div');",
+			"    toast.classList.add('toast');",
+			"    toast.textContent = message;",
+			"    document.body.appendChild(toast);",
+			"    setTimeout(() => {",
+			"        toast.remove();",
+			"    }, 3000); // Remove after 3 seconds",
+			"}",
+			"// Usage:",
+			"showToast('This is a toast notification!');"
+		],
+		"description": "Create a toast notification"
+	},
+	"promise-ajax-request": {
+		"prefix": "promiseAjaxRequest",
+		"body": [
+			"function ajaxRequest(url, method, data) {",
+			"    return new Promise((resolve, reject) => {",
+			"        const xhr = new XMLHttpRequest();",
+			"        xhr.open(method, url, true);",
+			"        xhr.setRequestHeader('Content-Type', 'application/json');",
+			"        xhr.onreadystatechange = function () {",
+			"            if (xhr.readyState === XMLHttpRequest.DONE) {",
+			"                if (xhr.status === 200) {",
+			"                    resolve(JSON.parse(xhr.responseText));",
+			"                } else {",
+			"                    reject(xhr.statusText);",
+			"                }",
+			"            }",
+			"        };",
+			"        xhr.send(JSON.stringify(data));",
+			"    });",
+			"}",
+			"// Usage:",
+			"// ajaxRequest(url, 'POST', data).then(response => {}).catch(error => {});"
+		],
+		"description": "Create a promise-based AJAX request"
+	},
+	"format-currency": {
+		"prefix": "formatCurrency",
+		"body": [
+			"function formatCurrency(amount, currencyCode) {",
+			"    return new Intl.NumberFormat('en-US', { style: 'currency', currency: currencyCode }).format(amount);",
+			"}",
+			"// Usage:",
+			"// const formattedAmount = formatCurrency(1000, 'USD');"
+		],
+		"description": "Create a function to format a currency"
+	},
+	"format-date": {
+		"prefix": "formatDate",
+		"body": [
+			"function formatDate(date) {",
+			"    const options = { year: 'numeric', month: 'short', day: 'numeric' };",
+			"    return new Date(date).toLocaleDateString(undefined, options);",
+			"}",
+			"// Usage:",
+			"// const formattedDate = formatDate(new Date());"
+		],
+		"description": "Create a function to format a date"
+	},
+	"is-palindrome": {
+		"prefix": "isPalindrome",
+		"body": [
+			"function isPalindrome(str) {",
+			"    const cleanStr = str.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');",
+			"    const reversedStr = cleanStr.split('').reverse().join('');",
+			"    return cleanStr === reversedStr;",
+			"}",
+			"// Usage:",
+			"// const isPalin = isPalindrome('A man, a plan, a canal: Panama');"
+		],
+		"description": "Create a function to check if a string is a palindrome"
+	},
+	"local-storage-helper": {
+		"prefix": "localStorageHelper",
+		"body": [
+			"const localStorageHelper = {",
+			"    setItem: (key, value) => {",
+			"        localStorage.setItem(key, JSON.stringify(value));",
+			"    },",
+			"    getItem: (key) => {",
+			"        const item = localStorage.getItem(key);",
+			"        return item ? JSON.parse(item) : null;",
+			"    },",
+			"    removeItem: (key) => {",
+			"        localStorage.removeItem(key);",
+			"    },",
+			"    clear: () => {",
+			"        localStorage.clear();",
+			"    }",
+			"};",
+			"// Usage:",
+			"// localStorageHelper.setItem('myKey', { name: 'John' });",
+			"// const myItem = localStorageHelper.getItem('myKey');",
+			"// localStorageHelper.removeItem('myKey');",
+			"// localStorageHelper.clear();"
+		],
+		"description": "Create a simple local storage helper"
+	},
+	"element-in-viewport": {
+		"prefix": "elementInViewport",
+		"body": [
+			"function isElementInViewport(el) {",
+			"    const rect = el.getBoundingClientRect();",
+			"    return (rect.top >= 0 && rect.left >= 0 &&",
+			"            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&",
+			"            rect.right <= (window.innerWidth || document.documentElement.clientWidth));",
+			"}",
+			"// Usage:",
+			"// const element = document.getElementById('myElement');",
+			"// const isInViewport = isElementInViewport(element);"
+		],
+		"description": "Create a function to check if an element is in the viewport"
+	},
+	"markdown-to-html": {
+		"prefix": "markdownToHtml",
+		"body": [
+			"function convertMarkdownToHtml(markdownText) {",
+			"    const converter = new showdown.Converter(); // Assuming showdown library is available",
+			"    return converter.makeHtml(markdownText);",
+			"}",
+			"// Usage:",
+			"// const markdownText = '## Heading\\nThis is some **bold** text.';",
+			"// const htmlContent = convertMarkdownToHtml(markdownText);"
+		],
+		"description": "Create a function to convert Markdown to HTML"
+	},
+	"leap-year-check": {
+		"prefix": "leapYearCheck",
+		"body": [
+			"function isLeapYear(year) {",
+			"    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);",
+			"}",
+			"// Usage:",
+			"// const isLeap = isLeapYear(2024);"
+		],
+		"description": "Create a function to check if a year is a leap year"
+	},
+	"text-truncate": {
+		"prefix": "textTruncate",
+		"body": [
+			"function truncateText(text, maxLength) {",
+			"    if (text.length > maxLength) {",
+			"        return text.slice(0, maxLength) + '...';",
+			"    }",
+			"    return text;",
+			"}",
+			"// Usage:",
+			"// const truncatedText = truncateText('Lorem ipsum dolor sit amet', 20);"
+		],
+		"description": "Create a function to truncate text"
+	},
+	"phone-number-format": {
+		"prefix": "phoneNumberFormat",
+		"body": [
+			"function formatPhoneNumber(phoneNumber) {",
+			"    const cleaned = ('' + phoneNumber).replace(/\D/g, '');",
+			"    const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);",
+			"    if (match) {",
+			"        return '(' + match[1] + ') ' + match[2] + '-' + match[3];",
+			"    }",
+			"    return phoneNumber;",
+			"}",
+			"// Usage:",
+			"// const formattedPhoneNumber = formatPhoneNumber('1234567890');"
+		],
+		"description": "Create a function to format a phone number"
+	},
+	"generate-qr-code": {
+		"prefix": "generateQRCode",
+		"body": [
+			"function generateQRCode(text, width, height) {",
+			"    const qr = new QRCode({ width, height }); // Assuming QRCode library is available",
+			"    return qr.makeCode(text);",
+			"}",
+			"// Usage:",
+			"// const qrCodeImage = generateQRCode('https://example.com', 100, 100);"
+		],
+		"description": "Create a function to generate a QR code"
+	},
+	"factorial-calculation": {
+		"prefix": "factorialCalculation",
+		"body": [
+			"function calculateFactorial(n) {",
+			"    if (n < 0) return 'undefined';",
+			"    if (n === 0) return 1;",
+			"    return n * calculateFactorial(n - 1);",
+			"}",
+			"// Usage:",
+			"// const factorialOf5 = calculateFactorial(5);"
+		],
+		"description": "Create a function to calculate factorial"
+	},
+	"is-prime-check": {
+		"prefix": "isPrimeCheck",
+		"body": [
+			"function isPrime(num) {",
+			"    if (num <= 1) return false;",
+			"    if (num <= 3) return true;",
+			"    if (num % 2 === 0 || num % 3 === 0) return false;",
+			"    let i = 5;",
+			"    while (i * i <= num) {",
+			"        if (num % i === 0 || num % (i + 2) === 0) return false;",
+			"        i += 6;",
+			"    }",
+			"    return true;",
+			"}",
+			"// Usage:",
+			"// const isNumPrime = isPrime(17);"
+		],
+		"description": "Create a function to check if a number is prime"
+	},
+	"calculate-average": {
+		"prefix": "calculateAverage",
+		"body": [
+			"function calculateAverage(arr) {",
+			"    if (arr.length === 0) return null;",
+			"    const sum = arr.reduce((total, num) => total + num, 0);",
+			"    return sum / arr.length;",
+			"}",
+			"// Usage:",
+			"// const numbers = [10, 20, 30, 40, 50];",
+			"// const average = calculateAverage(numbers);"
+		],
+		"description": "Create a function to calculate the average of an array"
+	},
+	"is-anagram-check": {
+		"prefix": "isAnagramCheck",
+		"body": [
+			"function isAnagram(str1, str2) {",
+			"    const sortedStr1 = str1.toLowerCase().split('').sort().join('');",
+			"    const sortedStr2 = str2.toLowerCase().split('').sort().join('');",
+			"    return sortedStr1 === sortedStr2;",
+			"}",
+			"// Usage:",
+			"// const result = isAnagram('listen', 'silent');"
+		],
+		"description": "Create a function to check if two strings are anagrams"
+	},
+	"capitalize-words": {
+		"prefix": "capitalizeWords",
+		"body": [
+			"function capitalizeWords(sentence) {",
+			"    return sentence.replace(/\\b\\w/g, match => match.toUpperCase());",
+			"}",
+			"// Usage:",
+			"// const capitalizedSentence = capitalizeWords('hello world');"
+		],
+		"description": "Create a function to capitalize the first letter of each word"
+	},
+	"is-palindrome-check": {
+		"prefix": "isPalindromeCheck",
+		"body": [
+			"function isPalindrome(str) {",
+			"    const cleanedStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');",
+			"    const reversedStr = cleanedStr.split('').reverse().join('');",
+			"    return cleanedStr === reversedStr;",
+			"}",
+			"// Usage:",
+			"// const isPalin = isPalindrome('A man, a plan, a canal: Panama');"
+		],
+		"description": "Create a function to check if a string is a palindrome"
+	},
+	"temperature-conversion": {
+		"prefix": "temperatureConversion",
+		"body": [
+			"function celsiusToFahrenheit(celsius) {",
+			"    return celsius * 9 / 5 + 32;",
+			"}",
+			"",
+			"function fahrenheitToCelsius(fahrenheit) {",
+			"    return (fahrenheit - 32) * 5 / 9;",
+			"}",
+			"// Usage:",
+			"// const fahrenheitValue = celsiusToFahrenheit(30);",
+			"// const celsiusValue = fahrenheitToCelsius(86);"
+		],
+		"description": "Create functions to convert temperature between Celsius and Fahrenheit"
+	},
+	"string-reverse": {
+		"prefix": "stringReverse",
+		"body": [
+			"function reverseString(str) {",
+			"    return str.split('').reverse().join('');",
+			"}",
+			"// Usage:",
+			"// const reversedStr = reverseString('hello');"
+		],
+		"description": "Create a function to reverse a string"
+	},
+	"dark-mode-detection": {
+		"prefix": "darkModeDetection",
+		"body": [
+			"function isDarkModePreferred() {",
+			"    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;",
+			"}",
+			"// Usage:",
+			"// const isDarkMode = isDarkModePreferred();"
+		],
+		"description": "Create a function to detect if the user prefers dark mode"
+	},
+	"url-parameter-parser": {
+		"prefix": "urlParameterParser",
+		"body": [
+			"function getURLParameter(name) {",
+			"    const urlParams = new URLSearchParams(window.location.search);",
+			"    return urlParams.get(name);",
+			"}",
+			"// Usage:",
+			"// const parameterValue = getURLParameter('param');"
+		],
+		"description": "Create a function to parse URL parameters"
+	},
+	"even-odd-check": {
+		"prefix": "evenOddCheck",
+		"body": [
+			"function isEvenOrOdd(num) {",
+			"    return num % 2 === 0 ? 'even' : 'odd';",
+			"}",
+			"// Usage:",
+			"// const result = isEvenOrOdd(5);"
+		],
+		"description": "Create a function to check if a number is even or odd"
+	},
+	"power-calculation": {
+		"prefix": "powerCalculation",
+		"body": [
+			"function calculatePower(base, exponent) {",
+			"    return Math.pow(base, exponent);",
+			"}",
+			"// Usage:",
+			"// const result = calculatePower(2, 3);"
+		],
+		"description": "Create a function to calculate the power of a number"
+	},
+	"max-array-element": {
+		"prefix": "maxArrayElement",
+		"body": [
+			"function findMax(arr) {",
+			"    return Math.max(...arr);",
+			"}",
+			"// Usage:",
+			"// const maxElement = findMax([10, 5, 8, 15]);"
+		],
+		"description": "Create a function to find the maximum element in an array"
+	},
+	"fibonacci-sequence": {
+		"prefix": "fibonacciSequence",
+		"body": [
+			"function generateFibonacci(n) {",
+			"    const result = [0, 1];",
+			"    for (let i = 2; i < n; i++) {",
+			"        const next = result[i - 1] + result[i - 2];",
+			"        result.push(next);",
+			"    }",
+			"    return result;",
+			"}",
+			"// Usage:",
+			"// const fibonacciNumbers = generateFibonacci(10);"
+		],
+		"description": "Create a function to generate a Fibonacci sequence"
+	},
+	"unique-id-generator": {
+		"prefix": "uniqueIdGenerator",
+		"body": [
+			"function generateUniqueId() {",
+			"    return Math.random().toString(36).substring(2) + (new Date()).getTime().toString(36);",
+			"}",
+			"// Usage:",
+			"// const uniqueId = generateUniqueId();"
+		],
+		"description": "Create a function to generate a unique ID"
+	},
+	"number-to-words": {
+		"prefix": "numberToWords",
+		"body": [
+			"function convertNumberToWords(num) {",
+			"    const units = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];",
+			"    // Add more cases for tens, hundreds, etc. as needed",
+			"    // ...",
+			"    return units[num] || 'Unknown';",
+			"}",
+			"// Usage:",
+			"// const wordRepresentation = convertNumberToWords(3);"
+		],
+		"description": "Create a function to convert a number to words"
+	},
+	"array-sum": {
+		"prefix": "arraySum",
+		"body": [
+			"function calculateArraySum(arr) {",
+			"    return arr.reduce((sum, num) => sum + num, 0);",
+			"}",
+			"// Usage:",
+			"// const sum = calculateArraySum([1, 2, 3, 4, 5]);"
+		],
+		"description": "Create a function to calculate the sum of an array"
+	},
+	"bytes-conversion": {
+		"prefix": "bytesConversion",
+		"body": [
+			"function convertBytes(bytes) {",
+			"    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];",
+			"    if (bytes === 0) return '0 Byte';",
+			"    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);",
+			"    return `${(bytes / Math.pow(1024, i)).toFixed(2)} ${sizes[i]}`;",
+			"}",
+			"// Usage:",
+			"// const sizeInKB = convertBytes(1024);"
+		],
+		"description": "Create a function to convert bytes to KB, MB, etc."
+	},
+	"random-username-generator": {
+		"prefix": "randomUsernameGenerator",
+		"body": [
+			"function generateRandomUsername() {",
+			"    const adjectives = ['Awesome', 'Cool', 'Fantastic', 'Silly', 'Crazy'];",
+			"    const nouns = ['Coder', 'Developer', 'Hacker', 'Geek', 'Ninja'];",
+			"    const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];",
+			"    const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];",
+			"    return `${randomAdjective}${randomNoun}`;",
+			"}",
+			"// Usage:",
+			"// const randomUsername = generateRandomUsername();"
+		],
+		"description": "Create a function to generate a random username"
+	},
+	"email-validation": {
+		"prefix": "emailValidation",
+		"body": [
+			"function isEmailValid(email) {",
+			"    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$/;",
+			"    return emailPattern.test(email);",
+			"}",
+			"// Usage:",
+			"// const isValid = isEmailValid('example@example.com');"
+		],
+		"description": "Create a function to validate an email address"
+	},
+	"url-validation": {
+		"prefix": "urlValidation",
+		"body": [
+			"function isURLValid(url) {",
+			"    const urlPattern = /^(https?|ftp):\\/\\/[\\w-]+(\\.[\\w-]+)+([\\w-.,@?^=%&:/~+#]*[\\w-@?^=%&/~+#])?$/i;",
+			"    return urlPattern.test(url);",
+			"}",
+			"// Usage:",
+			"// const isValidURL = isURLValid('https://example.com');"
+		],
+		"description": "Create a function to validate a URL"
+	},
+	"empty-string-check": {
+		"prefix": "emptyStringCheck",
+		"body": [
+			"function isStringEmptyOrWhitespace(str) {",
+			"    return str.trim() === '';",
+			"}",
+			"// Usage:",
+			"// const isEmpty = isStringEmptyOrWhitespace('   ');"
+		],
+		"description": "Create a function to check if a string is empty or whitespace"
+	},
+	"capitalize-first-letter": {
+		"prefix": "capitalizeFirstLetter",
+		"body": [
+			"function capitalizeFirstLetter(str) {",
+			"    return str.charAt(0).toUpperCase() + str.slice(1);",
+			"}",
+			"// Usage:",
+			"// const capitalizedStr = capitalizeFirstLetter('hello');"
+		],
+		"description": "Create a function to capitalize the first letter of a string"
+	},
+	"perfect-square-check": {
+		"prefix": "perfectSquareCheck",
+		"body": [
+			"function isPerfectSquare(num) {",
+			"    const sqrt = Math.sqrt(num);",
+			"    return sqrt === Math.floor(sqrt);",
+			"}",
+			"// Usage:",
+			"// const isPerfect = isPerfectSquare(16);"
+		],
+		"description": "Create a function to check if a number is a perfect square"
+	},
+	"card-shuffle": {
+		"prefix": "cardShuffle",
+		"body": [
+			"function shuffleDeck(deck) {",
+			"    for (let i = deck.length - 1; i > 0; i--) {",
+			"        const j = Math.floor(Math.random() * (i + 1));",
+			"        [deck[i], deck[j]] = [deck[j], deck[i]];",
+			"    }",
+			"}",
+			"// Usage:",
+			"// const deckOfCards = ['A', '2', '3', ..., 'K'];",
+			"// shuffleDeck(deckOfCards);"
+		],
+		"description": "Create a function to shuffle a deck of cards"
+	},
+	"compound-interest-calculation": {
+		"prefix": "compoundInterestCalculation",
+		"body": [
+			"function calculateCompoundInterest(principal, rate, time, timesCompoundedPerYear) {",
+			"    return principal * Math.pow(1 + rate / timesCompoundedPerYear, timesCompoundedPerYear * time);",
+			"}",
+			"// Usage:",
+			"// const compoundInterest = calculateCompoundInterest(1000, 0.05, 2, 12);"
+		],
+		"description": "Create a function to calculate compound interest"
+	},
+	"circle-area-calculation": {
+		"prefix": "circleAreaCalculation",
+		"body": [
+			"function calculateCircleArea(radius) {",
+			"    return Math.PI * Math.pow(radius, 2);",
+			"}",
+			"// Usage:",
+			"// const area = calculateCircleArea(5);"
+		],
+		"description": "Create a function to calculate the area of a circle"
+	},
+	"current-date-format": {
+		"prefix": "currentDateFormat",
+		"body": [
+			"function getCurrentDateFormatted() {",
+			"    const today = new Date();",
+			"    const dd = String(today.getDate()).padStart(2, '0');",
+			"    const mm = String(today.getMonth() + 1).padStart(2, '0');",
+			"    const yyyy = today.getFullYear();",
+			"    return `${mm}/${dd}/${yyyy}`;",
+			"}",
+			"// Usage:",
+			"// const formattedDate = getCurrentDateFormatted();"
+		],
+		"description": "Create a function to get the current date in a specific format"
+	},
+	"deep-object-clone": {
+		"prefix": "deepObjectClone",
+		"body": [
+			"function deepCloneObject(obj) {",
+			"    return JSON.parse(JSON.stringify(obj));",
+			"}",
+			"// Usage:",
+			"// const clonedObj = deepCloneObject(originalObj);"
+		],
+		"description": "Create a function to deep clone an object"
+	},																																																																										
+}

@@ -1,0 +1,757 @@
+{
+	// Place your snippets for css here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	."css-class": {
+		"prefix": ".",
+		"body": [
+		  ".${1:class-name} {",
+		  "  $2",
+		  "}"
+		],
+		"description": "CSS Class"
+	  },
+	  "css-id": {
+		"prefix": "#",
+		"body": [
+		  "#${1:id-name} {",
+		  "  $2",
+		  "}"
+		],
+		"description": "CSS ID"
+	  },
+	  "css-media-query": {
+		"prefix": "media",
+		"body": [
+		  "@media screen and (max-width: ${1:768}px) {",
+		  "  $2",
+		  "}"
+		],
+		"description": "CSS Media Query"
+	  },
+	  "css-font-face": {
+		"prefix": "font-face",
+		"body": [
+		  "@font-face {",
+		  "  font-family: '${1:FontName}';",
+		  "  src: url('${2:font.woff2}') format('woff2'),",
+		  "       url('${3:font.woff}') format('woff');",
+		  "  font-weight: ${4:normal};",
+		  "  font-style: ${5:normal};",
+		  "}"
+		],
+		"description": "CSS Font-Face"
+	  },		
+	  "css-keyframes": {
+		"prefix": "keyframes",
+		"body": [
+		  "@keyframes ${1:animation-name} {",
+		  "  0% { $2 }",
+		  "  100% { $3 }",
+		  "}"
+		],
+		"description": "CSS Keyframes"
+	  },		  
+	  "css-comment": {
+		"prefix": "comment",
+		"body": [
+		  "/* ${1:Comment} */"
+		],
+		"description": "CSS Comment"
+	  },
+	  "css-margin": {
+		"prefix": "margin-null",
+		"body": [
+		  "margin: ${1:0};"
+		],
+		"description": "CSS Margin"
+	  },
+	  "css-padding": {
+		"prefix": "padding-null",
+		"body": [
+		  "padding: ${1:0};"
+		],
+		"description": "CSS Padding"
+	  },
+	  "css-border": {
+		"prefix": "border-auto",
+		"body": [
+		  "border: ${1:1px} ${2:solid} ${3:#000};"
+		],
+		"description": "CSS Border"
+	  },
+	  "css-flexbox": {
+		"prefix": "flexbox-auto",
+		"body": [
+		  "display: flex;",
+		  "justify-content: ${1:center};",
+		  "align-items: ${2:center};"
+		],
+		"description": "CSS Flexbox"
+	  },
+	  "css-grid": {
+		"prefix": "grid-auto",
+		"body": [
+		  "display: grid;",
+		  "grid-template-columns: ${1:1fr};",
+		  "grid-template-rows: ${2:1fr};"
+		],
+		"description": "CSS Grid"
+	  },
+	  "css-width": {
+		"prefix": "width-full",
+		"body": [
+		  "width: ${1:full};"
+		],
+		"description": "CSS Width"
+	  },
+	  "css-height": {
+		"prefix": "height-full",
+		"body": [
+		  "height: ${1:auto};"
+		],
+		"description": "CSS Height"
+	  },
+	  "css-color": {
+		"prefix": "color-auto",
+		"body": [
+		  "color: ${1:#000000};"
+		],
+		"description": "CSS Color"
+	  },
+	  "css-background": {
+		"prefix": "background-auto",
+		"body": [
+		  "background: ${1:#ffffff};"
+		],
+		"description": "CSS Background"
+	  },
+	  "css-position": {
+		"prefix": "position-relative",
+		"body": [
+		  "position: ${1:relative};"
+		],
+		"description": "CSS Position"
+	  },
+	  "css-position": {
+		"prefix": "position-absolute",
+		"body": [
+		  "position: ${1:absolute};"
+		],
+		"description": "CSS Position"
+	  },
+	  "css-display": {
+		"prefix": "display-block",
+		"body": [
+		  "display: ${1:block};"
+		],
+		"description": "CSS Display"
+	  },
+	  "css-text-align": {
+		"prefix": "text-align",
+		"body": [
+		  "text-align: ${1:left};"
+		],
+		"description": "CSS Text Alignment"
+	  },
+	  "css-line-height": {
+		"prefix": "line-height",
+		"body": [
+		  "line-height: ${1:1.5};"
+		],
+		"description": "CSS Line Height"
+	  },
+	  "css-letter-spacing": {
+		"prefix": "letter-spacing",
+		"body": [
+		  "letter-spacing: ${1:normal};"
+		],
+		"description": "CSS Letter Spacing"
+	  },
+	  "css-text-transform": {
+		"prefix": "text-transform",
+		"body": [
+		  "text-transform: ${1:none};"
+		],
+		"description": "CSS Text Transformation"
+	  },
+	  "css-overflow": {
+		"prefix": "overflow-null",
+		"body": [
+		  "overflow: ${1:hidden};"
+		],
+		"description": "CSS Overflow"
+	  },
+	  "css-tableur": {
+		"prefix": "tableur:template",
+		"body": [
+		  ".tableur {",
+		  "  width: 100%;",
+		  "  border-collapse: collapse;",
+		  "  margin-bottom: 20px;",
+		  "}",
+		  ".tableur caption {",
+		  "  font-weight: bold;",
+		  "  text-align: left;",
+		  "  padding: 10px;",
+		  "  background-color: #f0f0f0;",
+		  "}",
+		  ".tableur thead th, .tableur tbody td {",
+		  "  border: 1px solid #ccc;",
+		  "  padding: 10px;",
+		  "}",
+		  ".tableur tbody td {",
+		  "  text-align: left;",
+		  "}",
+		  ".tableur tbody td:first-child {",
+		  "  font-weight: bold;",
+		  "}"
+		],
+		"description": "CSS for HTML Tableur"
+	  },
+	  "css-select-input": {
+		"prefix": "select!custom:template",
+		"body": [
+		  ".select-custom label {",
+		  "  display: block;",
+		  "  margin-bottom: 10px;",
+		  "}",
+		  ".select-custom select {",
+		  "  width: 100%;",
+		  "  padding: 10px;",
+		  "  box-sizing: border-box;",
+		  "  border: 1px solid #ccc;",
+		  "  border-radius: 5px;",
+		  "}",
+		  ".select-custom select:focus {",
+		  "  border-color: #007BFF;",
+		  "  outline: none;",
+		  "}",
+		  ".select-custom optgroup {",
+		  "  font-weight: bold;",
+		  "}",
+		  ".select-custom option {",
+		  "  padding: 10px;",
+		  "}"
+		],
+		"description": "CSS for HTML Select Input"
+	  },
+	  "css-nav-menu": {
+		"prefix": "nav-menu:template",
+		"body": [
+		  ".nav-menu nav {",
+		  "  display: flex;",
+		  "  justify-content: center;",
+		  "  background-color: #007BFF;",
+		  "}",
+		  ".nav-menu ul {",
+		  "  list-style: none;",
+		  "  padding: 0;",
+		  "  margin: 0;",
+		  "  display: flex;",
+		  "}",
+		  ".nav-menu li {",
+		  "  margin-right: 10px;",
+		  "}",
+		  ".nav-menu li:last-child {",
+		  "  margin-right: 0;",
+		  "}",
+		  ".nav-menu a {",
+		  "  color: #fff;",
+		  "  text-decoration: none;",
+		  "  padding: 10px;",
+		  "}",
+		  ".nav-menu a:hover {",
+		  "  background-color: #0056b3;",
+		  "}"
+		],
+		"description": "CSS for HTML Navigation Menu"
+	  },
+	  "css-dropdown-menu": {
+		"prefix": "dropdown-menu:template",
+		"body": [
+		  ".dropdown-menu .dropdown-toggle {",
+		  "  background-color: #007BFF;",
+		  "  color: #fff;",
+		  "  border: none;",
+		  "  padding: 10px 20px;",
+		  "  cursor: pointer;",
+		  "}",
+		  ".dropdown-menu .dropdown-toggle:hover {",
+		  "  background-color: #0056b3;",
+		  "}",
+		  ".dropdown-menu .dropdown-item {",
+		  "  color: #333;",
+		  "  text-decoration: none;",
+		  "  padding: 10px 20px;",
+		  "  display: block;",
+		  "}",
+		  ".dropdown-menu .dropdown-item:hover {",
+		  "  background-color: #f0f0f0;",
+		  "}"
+		],
+		"description": "CSS for HTML Dropdown Menu"
+	  },			
+	  "css-accordion": {
+		"prefix": "accordion:template",
+		"body": [
+		  ".accordion .card {",
+		  "  border: none;",
+		  "  margin-bottom: 10px;",
+		  "}",
+		  ".accordion .card-header {",
+		  "  background-color: #f0f0f0;",
+		  "  border: none;",
+		  "}",
+		  ".accordion .card-header h2 button {",
+		  "  color: #333;",
+		  "  text-decoration: none;",
+		  "}",
+		  ".accordion .card-header h2 button:focus {",
+		  "  outline: none;",
+		  "}",
+		  ".accordion .card-body {",
+		  "  padding: 15px;",
+		  "}"
+		],
+		"description": "CSS for HTML Accordion"
+	  },	  
+	  "css-navbar": {
+		"prefix": "navbar:custom:template",
+		"body": [
+		  ".navbar-custom {",
+		  "  background-color: #f0f0f0;",
+		  "}",
+		  ".navbar-custom .navbar-brand {",
+		  "  color: #333;",
+		  "}",
+		  ".navbar-custom .navbar-brand:hover {",
+		  "  color: #007BFF;",
+		  "}",
+		  ".navbar-custom .nav-link {",
+		  "  color: #333;",
+		  "  margin-right: 10px;",
+		  "}",
+		  ".navbar-custom .nav-link:hover {",
+		  "  color: #007BFF;",
+		  "}",
+		  ".navbar-custom .navbar-toggler {",
+		  "  border: none;",
+		  "}",
+		  ".navbar-custom .navbar-toggler:focus {",
+		  "  outline: none;",
+		  "}",
+		  ".navbar-custom .navbar-toggler-icon {",
+		  "  background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg viewBox=\"0 0 30 30\" xmlns=\"http://www.w3.org/2000/svg\"%3e%3cpath stroke=\"rgba(0, 0, 0, 0.5)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-miterlimit=\"10\" d=\"M4 7h22M4 15h22m-22 8h22\"/%3e%3c/svg%3e');",
+		  "}"
+		],
+		"description": "CSS for HTML Navbar"
+	  },	  
+	  "css-form-group": {
+		"prefix": "form:template",
+		"body": [
+		  ".form-control {",
+		  "  width: 100%;",
+		  "  padding: 10px;",
+		  "  box-sizing: border-box;",
+		  "  border: 1px solid #ccc;",
+		  "  border-radius: 5px;",
+		  "}",
+		  ".form-control:focus {",
+		  "  border-color: #007BFF;",
+		  "  outline: none;",
+		  "}",
+		  "form label {",
+		  "  display: block;",
+		  "  margin-bottom: 10px;",
+		  "}",
+		  "form input, form select, form textarea {",
+		  "  width: 100%;",
+		  "  padding: 10px;",
+		  "  margin-bottom: 10px;",
+		  "  box-sizing: border-box;",
+		  "  border: 1px solid #ccc;",
+		  "  border-radius: 5px;",
+		  "}",
+		  "form input:focus, form select:focus, form textarea:focus {",
+		  "  border-color: #007BFF;",
+		  "  outline: none;",
+		  "}",
+		  "form button {",
+		  "  padding: 10px 20px;",
+		  "  background-color: #007BFF;",
+		  "  color: #fff;",
+		  "  border: none;",
+		  "  cursor: pointer;",
+		  "}",
+		  "form button:hover {",
+		  "  background-color: #0056b3;",
+		  "}"
+		],
+		"description": "CSS for HTML Form Group"
+	  },
+	  "css-checkbox": {
+		"prefix": "checkbox:template",
+		"body": [
+		  ".checkbox-label {",
+		  "  display: block;",
+		  "  margin-bottom: 10px;",
+		  "}",
+		  ".checkbox-label input {",
+		  "  margin-right: 10px;",
+		  "}"
+		],
+		"description": "CSS for HTML Checkbox"
+	  },	  
+	  "css-radio-button": {
+		"prefix": "radio-button:template",
+		"body": [
+		  ".radio-button-label {",
+		  "  display: block;",
+		  "  margin-bottom: 10px;",
+		  "}",
+		  ".radio-button-label input {",
+		  "  margin-right: 10px;",
+		  "}"
+		],
+		"description": "CSS for HTML Radio Button"
+	  }
+	  "css-image-caption": {
+		"prefix": "image-caption:template",
+		"body": [
+		  ".image-caption figure {",
+		  "  margin: 0;",
+		  "  padding: 0;",
+		  "}",
+		  ".image-caption img {",
+		  "  max-width: 100%;",
+		  "  height: auto;",
+		  "}",
+		  ".image-caption figcaption {",
+		  "  text-align: center;",
+		  "}"
+		],
+		"description": "CSS for HTML Image with Caption"
+	  },	
+	  "css-responsive-video": {
+		"prefix": "responsive-video:template",
+		"body": [
+		  ".video-container {",
+		  "  position: relative;",
+		  "  padding-bottom: 56.25%;",
+		  "  overflow: hidden;",
+		  "}",
+		  ".video-container iframe {",
+		  "  position: absolute;",
+		  "  top: 0;",
+		  "  left: 0;",
+		  "  width: 100%;",
+		  "  height: 100%;",
+		  "}"
+		],
+		"description": "CSS for Responsive Video Embed"
+	  },
+	  "css-section-heading": {
+		"prefix": "section-heading:template",
+		"body": [
+		  ".section-heading {",
+		  "  margin-bottom: 20px;",
+		  "}",
+		  ".section-heading h2 {",
+		  "  font-size: 1.5em;",
+		  "  margin-bottom: 10px;",
+		  "}",
+		  ".section-heading p {",
+		  "  margin: 0;",
+		  "}"
+		],
+		"description": "CSS for HTML Section with Heading"
+	  },
+	  "css-modal": {
+		"prefix": "modal:template",
+		"body": [
+		  ".modal {",
+		  "  display: none;",
+		  "  position: fixed;",
+		  "  z-index: 1050;",
+		  "  left: 0;",
+		  "  top: 0;",
+		  "  width: 100%;",
+		  "  height: 100%;",
+		  "  overflow: auto;",
+		  "  background-color: rgb(0,0,0);",
+		  "  background-color: rgba(0,0,0,0.4);",
+		  "  padding-top: 60px;",
+		  "}",
+		  ".modal-dialog {",
+		  "  margin: auto;",
+		  "  width: 80%;",
+		  "  max-width: 800px;",
+		  "}",
+		  ".modal-content {",
+		  "  background-color: #fefefe;",
+		  "  margin: 5% auto;",
+		  "  padding: 20px;",
+		  "  border: 1px solid #888;",
+		  "  border-radius: 10px;",
+		  "  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);",
+		  "}",
+		  ".modal-header, .modal-footer {",
+		  "  display: flex;",
+		  "  justify-content: space-between;",
+		  "  align-items: center;",
+		  "}",
+		  ".modal-title {",
+		  "  font-size: 1.25em;",
+		  "}",
+		  ".modal-body {",
+		  "  padding-bottom: 20px;",
+		  "}"
+		],
+		"description": "CSS for HTML Modal"
+	  },		
+	  "css-tabs": {
+		"prefix": "tabs:template",
+		"body": [
+		  ".nav-tabs .nav-item {",
+		  "  margin-bottom: -1px;",
+		  "}",
+		  ".nav-tabs .nav-link {",
+		  "  border: 1px solid transparent;",
+		  "  border-top-left-radius: .375rem;",
+		  "  border-top-right-radius: .375rem;",
+		  "}",
+		  ".nav-tabs .nav-link.active {",
+		  "  border-color: #dee2e6 #dee2e6 #fff;",
+		  "  border-bottom: 1px solid #fff;",
+		  "}",
+		  ".tab-content .tab-pane {",
+		  "  padding: 15px;",
+		  "  border: 1px solid #dee2e6;",
+		  "  border-radius: .375rem;",
+		  "  background-color: #fff;",
+		  "  border-top: none;",
+		  "}",
+		  ".tab-content .tab-pane.fade {",
+		  "  display: none;",
+		  "}"
+		],
+		"description": "CSS for HTML Tabs"
+	  },	
+	  "css-alert": {
+		"prefix": "alert:template",
+		"body": [
+		  ".alert {",
+		  "  padding: 15px;",
+		  "  margin-bottom: 20px;",
+		  "  border: 1px solid transparent;",
+		  "  border-radius: .375rem;",
+		  "}",
+		  ".alert-primary {",
+		  "  color: #004085;",
+		  "  background-color: #cce5ff;",
+		  "  border-color: #b8daff;",
+		  "}"
+		],
+		"description": "CSS for HTML Alert"
+	  },
+	  "css-pagination": {
+		"prefix": "pagination:template",
+		"body": [
+		  ".pagination {",
+		  "  display: flex;",
+		  "  padding-left: 0;",
+		  "  list-style: none;",
+		  "  border-radius: .375rem;",
+		  "}",
+		  ".page-item {",
+		  "  margin: 0 2px;",
+		  "}",
+		  ".page-link {",
+		  "  position: relative;",
+		  "  display: block;",
+		  "  padding: .5rem .75rem;",
+		  "  margin-left: -1px;",
+		  "  line-height: 1.25;",
+		  "  color: #007BFF;",
+		  "  background-color: #fff;",
+		  "  border: 1px solid #dee2e6;",
+		  "}",
+		  ".page-link:hover {",
+		  "  z-index: 2;",
+		  "  color: #0056b3;",
+		  "  text-decoration: none;",
+		  "  background-color: #f0f0f0;",
+		  "  border-color: #dee2e6;",
+		  "}"
+		],
+		"description": "CSS for HTML Pagination"
+	  },		
+	  "css-carousel": {
+		"prefix": "carousel:template",
+		"body": [
+		  ".carousel {",
+		  "  position: relative;",
+		  "}",
+		  ".carousel-indicators {",
+		  "  position: absolute;",
+		  "  top: 15px;",
+		  "  right: 15px;",
+		  "  margin-right: 0;",
+		  "  margin-left: 0;",
+		  "  list-style: none;",
+		  "}",
+		  ".carousel-indicators li {",
+		  "  display: inline-block;",
+		  "  width: 10px;",
+		  "  height: 10px;",
+		  "  margin: 0 5px;",
+		  "  text-indent: -999px;",
+		  "  border: 1px solid #ffffff;",
+		  "  border-radius: 50%;",
+		  "  cursor: pointer;",
+		  "}",
+		  ".carousel-indicators .active {",
+		  "  background-color: #ffffff;",
+		  "}",
+		  ".carousel-item {",
+		  "  display: none;",
+		  "  position: relative;",
+		  "  width: 100%;",
+		  "  transition: opacity .6s ease-in-out;",
+		  "}",
+		  ".carousel-item.active {",
+		  "  display: block;",
+		  "  opacity: 1;",
+		  "}",
+		  ".carousel-item img {",
+		  "  width: 100%;",
+		  "  border-radius: .375rem;",
+		  "}",
+		  ".carousel-control-prev, .carousel-control-next {",
+		  "  position: absolute;",
+		  "  top: 0;",
+		  "  bottom: 0;",
+		  "  display: flex;",
+		  "  align-items: center;",
+		  "  width: 15%;",
+		  "  color: #ffffff;",
+		  "  text-align: center;",
+		  "  background: rgba(0, 0, 0, 0.5);",
+		  "  transition: opacity .15s ease;",
+		  "}",
+		  ".carousel-control-prev:hover, .carousel-control-next:hover {",
+		  "  opacity: 1;",
+		  "}",
+		  ".carousel-control-prev {",
+		  "  left: 0;",
+		  "  border-top-right-radius: .375rem;",
+		  "}",
+		  ".carousel-control-next {",
+		  "  right: 0;",
+		  "  border-top-left-radius: .375rem;",
+		  "}"
+		],
+		"description": "CSS for HTML Carousel"
+	  },	
+	  "css-footer": {
+		"prefix": "footer:template",
+		"body": [
+		  "footer {",
+		  "  background-color: #f8f9fa;",
+		  "  padding: 20px 0;",
+		  "  text-align: center;",
+		  "}",
+		  "footer p {",
+		  "  margin: 0;",
+		  "  font-size: 14px;",
+		  "  color: #666;",
+		  "}"
+		],
+		"description": "CSS for HTML Footer"
+	  },			  
+	  "css-header": {
+		"prefix": "header:template",
+		"body": [
+		  "header {",
+		  "  background-color: #343a40;",
+		  "  padding: 10px 0;",
+		  "}",
+		  "header .container {",
+		  "  display: flex;",
+		  "  justify-content: space-between;",
+		  "  align-items: center;",
+		  "}",
+		  "header h1 {",
+		  "  font-size: 24px;",
+		  "  color: #ffffff;",
+		  "}",
+		  "header nav ul {",
+		  "  list-style: none;",
+		  "  margin: 0;",
+		  "  padding: 0;",
+		  "}",
+		  "header nav ul li {",
+		  "  display: inline-block;",
+		  "  margin-left: 20px;",
+		  "}",
+		  "header nav ul li:first-child {",
+		  "  margin-left: 0;",
+		  "}",
+		  "header nav ul li a {",
+		  "  text-decoration: none;",
+		  "  color: #ffffff;",
+		  "}",
+		  "header nav ul li a:hover {",
+		  "  border-bottom: 2px solid #ffffff;",
+		  "}"
+		],
+		"description": "CSS for HTML Header"
+	  },	  
+	  "css-emailjs-form": {
+		"prefix": "!emailjs-form",
+		"body": [
+		  "#contact-form {",
+		  "  max-width: 400px;",
+		  "  margin: 0 auto;",
+		  "}",
+		  "#contact-form label {",
+		  "  display: block;",
+		  "  margin-bottom: 5px;",
+		  "}",
+		  "#contact-form input, #contact-form textarea {",
+		  "  width: 100%;",
+		  "  padding: 10px;",
+		  "  margin-bottom: 10px;",
+		  "  border: 1px solid #ccc;",
+		  "  border-radius: 4px;",
+		  "  box-sizing: border-box;",
+		  "}",
+		  "#contact-form button {",
+		  "  padding: 10px 20px;",
+		  "  background-color: #007BFF;",
+		  "  color: white;",
+		  "  border: none;",
+		  "  border-radius: 4px;",
+		  "  cursor: pointer;",
+		  "}",
+		  "#contact-form button:hover {",
+		  "  background-color: #0056b3;",
+		  "}",
+		  "#contact-form button:focus {",
+		  "  outline: none;",
+		  "}"
+		],
+		"description": "CSS for EmailJS Contact Form"
+	  },	  
+}

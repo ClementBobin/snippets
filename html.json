@@ -912,6 +912,7 @@
 	  "emailjs-form": {
 		"prefix": "!emailjs-form",
 		"body": [
+		  "<script src='https://cdn.emailjs.com/dist/email.min.js'></script>",
 		  "<!-- Contact Form -->",
 		  "<form id='contactForm'>",
 		  "  <label for='name'>Name:</label>",

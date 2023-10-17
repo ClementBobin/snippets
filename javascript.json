@@ -85,7 +85,7 @@
 			"		alert('Ahh, something went wrong. Please try again.');",
 			"		});",
 			"	});",
-			"$2",
+			"});",
 		],
 		"description": "emailjs"
 	  },

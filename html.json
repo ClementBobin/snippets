@@ -39,7 +39,15 @@
 			"  </head>",
 			"  <body>",
 			"	<noscript>You need to enable javascript</noscript>",
-			"$2",
+			"	<header>",
+			"",
+			"   </header>",
+			"	<main>",
+			"",
+			"   </main>",
+			"	<footer>",
+			"",
+			"   </footer>",
 			"  </body>",
 			"</html>"			
 		],
@@ -620,7 +628,7 @@
 		"description": "HTML Form Group"
 	  },	  
 	  "form": {
-		"prefix": "form",
+		"prefix": "form:custom",
 		"body": [
 		  "<form>",
 		  "  <label for='exampleFormControlInput1'>Email address</label>",
@@ -819,7 +827,7 @@
 		"description": "HTML Carousel"
 	  },				
 	  "footer": {
-		"prefix": "footer",
+		"prefix": "footer:custom",
 		"body": [
 		  "<footer>",
 		  "  <div class='container'>",
@@ -830,7 +838,7 @@
 		"description": "HTML Footer"
 	  },
 	  "header": {
-		"prefix": "header",
+		"prefix": "header:custom",
 		"body": [
 		  "<header>",
 		  "  <div class='container'>",
@@ -912,8 +920,9 @@
 	  "emailjs-form": {
 		"prefix": "!emailjs-form",
 		"body": [
+		  "<script src='https://cdn.emailjs.com/dist/email.min.js'></script>"
 		  "<!-- Contact Form -->",
-		  "<form id='contact-form' action='javascript:void(0);' method='POST'>",
+		  "<form id='contactForm'>",
 		  "  <label for='name'>Name:</label>",
 		  "  <input type='text' id='name' name='name' required>",
 		  "  <label for='email'>Email:</label>",

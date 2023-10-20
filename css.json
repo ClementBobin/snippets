@@ -192,6 +192,18 @@
 		],
 		"description": "CSS Overflow"
 	  },
+	  "css-position": {
+		"prefix": "!css",
+		"body": [
+			"*{",
+			"	margin: 0;",
+			"	padding: 0;",
+			"	box-sizing: border-box;",
+			"	font-family: "Poppins" , sans-serif;",
+			"}",
+		],
+		"description": "CSS Position"
+	  },
 	  "css-tableur": {
 		"prefix": "tableur:template",
 		"body": [

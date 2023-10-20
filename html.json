@@ -76,6 +76,11 @@
 			"			<td>Contenue</td>",
 			"  		</tr>",
 			"	</tbody>",
+			"	<tfoot>",
+			"  		<tr>",
+			"			<th>Foot?</th>",
+			"  		</tr>",
+			"	</tfoot>",
 		  	"</table>"
 		],
 		"description": "Html Tableur"
